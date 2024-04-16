@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 export default function Routes() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='Tela_inicio_animada'>
       <Stack.Screen name='Tela_inicio_animada' component={Tela_inicio_animada} 
       options={{
         title: "",
