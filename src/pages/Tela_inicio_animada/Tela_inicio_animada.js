@@ -4,7 +4,6 @@ import { StyleSheet, View, Image } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 
 export default function Tela_inicio_animada({navigation}) {
-
     useEffect(() => {
       const interval = setInterval(() => {
         navigation.replace('Login'); 

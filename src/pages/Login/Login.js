@@ -28,7 +28,7 @@ export default function Login({navigation}) {
           />
 
           <TextInput style={Login_styles.input} 
-          placeholder="Usuário"/>
+          placeholder="Nome do cliente"/>
 
           <TextInput style={Login_styles.input} 
           placeholder="Senha"/>

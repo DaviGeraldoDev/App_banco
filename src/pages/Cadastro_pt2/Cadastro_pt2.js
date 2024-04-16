@@ -21,21 +21,21 @@ export default function Cadastro_pt2({navigation}) {
           />
 
           <TextInput style={Login_styles.input} 
-          placeholder="Nome Completo"/>
+          placeholder="Número de telefone"/>
 
           <View style={container_style.div_inputs_menores}>
             <TextInput style={container_style.input_menor} 
-            placeholder="Nascimento"/>
+            placeholder="CEP"/>
 
             <TextInput style={container_style.input_menor} 
-            placeholder="Gênero"/>
+            placeholder="Num. casa"/>
           </View>
 
           <TextInput style={Login_styles.input} 
           placeholder="E-mail"/>
 
           <TextInput style={Login_styles.input} 
-          placeholder="Área de atução"/>
+          placeholder="Senha"/>
 
           <TouchableOpacity 
           style={Login_styles.botao}
@@ -59,7 +59,7 @@ const container_style = StyleSheet.create({
   quadradin: {
     backgroundColor: '#002233',
     width: 320,
-    height: 490,
+    height: 500,
     paddingTop: 24,
     paddingBottom: 24,
     alignItems: 'center',
@@ -80,6 +80,6 @@ const container_style = StyleSheet.create({
     paddingLeft: 15,
     padding: 5,
     margin: 10
-  },
+  }
 
 });

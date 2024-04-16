@@ -27,8 +27,16 @@ export default function Cadastro_pt1({navigation}) {
           <TextInput style={Login_styles.input} 
           placeholder="Nome Completo"/>
 
+          <View style={container_style.div_inputs_menores}>
+            <TextInput style={container_style.input_menor} 
+            placeholder="Nascimento"/>
+
+            <TextInput style={container_style.input_menor} 
+            placeholder="Gênero"/>
+          </View>
+
           <TextInput style={Login_styles.input} 
-          placeholder="E-mail"/>
+          placeholder="RG"/>
 
           <TextInput style={Login_styles.input} 
           placeholder="CPF"/>
@@ -54,7 +62,7 @@ const container_style = StyleSheet.create({
   quadradin: {
     backgroundColor: '#002233',
     width: 320,
-    height: 460,
+    height: 500,
     paddingTop: 24,
     paddingBottom: 24,
     alignItems: 'center',
@@ -62,6 +70,19 @@ const container_style = StyleSheet.create({
     borderColor: '#0066FF',
     borderWidth: 5,
     borderRadius: 60
+  },
+
+  div_inputs_menores:{
+    flexDirection: 'row' 
+  },
+
+  input_menor:{
+    backgroundColor: 'white',
+    width: '36%',
+    borderRadius: 100,
+    paddingLeft: 15,
+    padding: 5,
+    margin: 10
   }
 
 });
