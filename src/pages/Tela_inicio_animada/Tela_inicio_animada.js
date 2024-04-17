@@ -7,7 +7,7 @@ export default function Tela_inicio_animada({navigation}) {
     useEffect(() => {
       const interval = setInterval(() => {
         navigation.replace('Login'); 
-      }, 3000); 
+      }, 3500); 
   
       return () => clearInterval(interval);
     }, [navigation]);
@@ -16,9 +16,16 @@ export default function Tela_inicio_animada({navigation}) {
     <View style={inicio_style.container}
     >
       <Animatable.Image
+      //Ou fadeInUp e fadeInDown
+        animation="fadeInDown" delay={800} duration={700}
+        source={require('../../assets/logo_desenho.png')}
+        style = {inicio_style.logo_desenho}
+      />
+      
+      <Animatable.Image
         animation="fadeInUp" delay={800} duration={700}
-        source={require('../../assets/logo.png')}
-        style = {inicio_style.logo}
+        source={require('../../assets/logo_letras.png')}
+        style = {inicio_style.logo_letras}
       />
 
       <StatusBar style="auto" />
@@ -35,9 +42,15 @@ const inicio_style = StyleSheet.create({
     backgroundColor: '#002233'
   },
 
-  logo: {
+  logo_desenho: {
+    width: 120,
+    height: 120
+  },
+
+  logo_letras: {
+    marginTop: 15,
     width: 140,
-    height: 140,
+    height: 40
   }
 
 });
