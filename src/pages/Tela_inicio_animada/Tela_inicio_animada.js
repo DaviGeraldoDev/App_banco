@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import * as Animatable from 'react-native-animatable'
+import * as Animatable from 'react-native-animatable';
 
 export default function Tela_inicio_animada({navigation}) {
     useEffect(() => {
       const interval = setInterval(() => {
         navigation.replace('Login'); 
-      }, 3500); 
+      }, 3000); 
   
       return () => clearInterval(interval);
     }, [navigation]);
@@ -16,7 +16,6 @@ export default function Tela_inicio_animada({navigation}) {
     <View style={inicio_style.container}
     >
       <Animatable.Image
-      //Ou fadeInUp e fadeInDown
         animation="fadeInDown" delay={800} duration={700}
         source={require('../../assets/logo_desenho.png')}
         style = {inicio_style.logo_desenho}

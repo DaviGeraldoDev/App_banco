@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, StyleSheet, Text, TextInput, Input, TouchableOpacity, View, Image } from 'react-native';
+import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
 import Login_styles from '../../styles/Login_style';
+import * as Animatable from 'react-native-animatable';
 
 export default function Login({navigation}) {
   
@@ -21,7 +22,8 @@ export default function Login({navigation}) {
       source = {require('../../assets/wave-haikei.png')}
       style = {Login_styles.imagebackground}
       >
-        <View style={container_style.quadradin}>
+        <Animatable.View style={container_style.quadradin}
+        animation="fadeInUp" duration={700}>
           <Image
             source={require('../../assets/logo.png')}
             style = {Login_styles.logo}
@@ -30,7 +32,8 @@ export default function Login({navigation}) {
           <TextInput style={Login_styles.input} 
           placeholder="Nome do cliente"/>
 
-          <TextInput style={Login_styles.input} 
+          <TextInput style={Login_styles.input}
+          secureTextEntry={true} 
           placeholder="Senha"/>
 
           <TouchableOpacity 
@@ -43,7 +46,7 @@ export default function Login({navigation}) {
           <Text style={Login_styles.text} 
           onPress={() => cadastro()}>Cadastre-se</Text>
           
-        </View>
+        </Animatable.View>
 
       </ImageBackground>
       
