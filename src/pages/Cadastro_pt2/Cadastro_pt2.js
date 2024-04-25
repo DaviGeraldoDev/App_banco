@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
+import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, Vibration } from 'react-native';
 import Login_styles from '../../styles/Login_style';
 import * as Animatable from 'react-native-animatable';
 
 export default function Cadastro_pt2({navigation}) {
 
   const login = () => {
+    Vibration.vibrate(500)
     navigation.navigate("Login")
   }
 
