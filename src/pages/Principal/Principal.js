@@ -5,12 +5,10 @@ import { StyleSheet, View, Image, Text, ScrollView, TouchableOpacity, Share } fr
 export default function Principal() {
 
   const shareMessage = async () => { 
-      await Share.share({
-        message: 'Mensagem de compatilhamento'})
+      await Share.share({message: 'Mensagem de compatilhamento'})
       }
 
   const [showValue, setShowValue] = useState(false);
-
 
   return (
     <ScrollView style={styles.container0}>
@@ -116,12 +114,39 @@ export default function Principal() {
       </View>
           <Text style = {styles.texto_solto}>Minha vida financeira</Text>
           <View style = {styles.row_direction}>
-            <View style = {styles.divs_de_baixo}>
+            <TouchableOpacity style = {styles.divs_de_baixo}>
+              <Text style = {styles.text_banner}>Pontos</Text>
+              <Image source={require('../../assets/din_din.png')}
+                style = {styles.img_banner}/>
+            </TouchableOpacity>
+            <TouchableOpacity style = {styles.divs_de_baixo}>
+              <Text style = {styles.text_banner}>Ações</Text>
+              <View>
 
-            </View>
-            <View style = {styles.divs_de_baixo}>
+                <View style = {styles.row_direction}>
+                  <Text style = {styles.nome_acao_preco}>BOVA11</Text>
+                  <Text style = {styles.nome_acao_preco}>R$ 123,55</Text>
+                </View>
+                <Text style = {styles.porcentagem}>-0,48</Text>
+              </View>
 
-            </View>
+              <View>
+                <View style = {styles.row_direction}>
+                  <Text style = {styles.nome_acao_preco}>SMAL11</Text>
+                  <Text style = {styles.nome_acao_preco}>R$ 105,90</Text>
+                </View>
+                <Text style = {styles.porcentagem}>-0,70</Text>
+              </View>
+              <View>
+
+                <View style = {styles.row_direction}>
+                  <Text style = {styles.nome_acao_preco}>GOOGL1</Text>
+                  <Text style = {styles.nome_acao_preco}>R$ 100,90</Text>
+                </View>
+                <Text style = {styles.porcentagem}>-1,65</Text>
+              </View>
+              
+            </TouchableOpacity>
           </View>
     <StatusBar style="auto" />
     </ScrollView>
@@ -135,7 +160,6 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    flex: 1,
     alignItems: 'center',
   },
   
@@ -174,7 +198,7 @@ const styles = StyleSheet.create({
   saldo: {
     backgroundColor: '#fff',
     borderColor: '#002233',
-    borderWidth: 12,
+    borderWidth: 7,
     marginTop: 30,
     width: 340,
     height: 190,
@@ -194,7 +218,8 @@ const styles = StyleSheet.create({
     height: 20,
     backgroundColor: 'grey',
     marginLeft: 30,
-    marginTop: 52
+    marginTop: 52,
+    borderRadius: 20
   },
 
   img_seta: {
@@ -204,7 +229,7 @@ const styles = StyleSheet.create({
   },
 
   formas_pagamentos: {
-    marginTop: 15,
+    marginTop: 25,
     flexDirection: 'row',
     justifyContent: 'space-around'
   },
@@ -219,7 +244,7 @@ const styles = StyleSheet.create({
   caixa_pag: {
     backgroundColor: '#fff',
     borderColor: '#002233',
-    borderWidth: 5,
+    borderWidth: 4,
     flexDirection: 'row',
     height: 50,
     width: 60,
@@ -246,7 +271,7 @@ const styles = StyleSheet.create({
     height: 80,
     backgroundColor: '#fff',
     borderColor: '#002233',
-    borderWidth: 10,
+    borderWidth: 6,
     borderRadius: 20,
     alignItems: 'center', 
     justifyContent: 'center'
@@ -283,14 +308,43 @@ const styles = StyleSheet.create({
   },
 
   divs_de_baixo: {
-    width: '40%',
+    width: '45%',
     height: 220,
-    marginLeft: 20,
+    marginLeft: 12,
     backgroundColor: '#fff',
     borderColor: '#002233',
     borderRadius: 15,
     borderWidth: 8,
     marginTop: 20,
-    marginBottom: 100
+    marginBottom: 50,
+  },
+
+  img_banner: {
+    width: 100,
+    height: 100,
+    marginLeft: 35,
+    marginTop: 40
+  },
+
+  text_banner: {
+    marginTop: 15,
+    marginLeft: 10,
+    marginBottom: 12,
+    fontWeight: '500',
+    color: '#3D3A3A',
+    fontSize: 22
+  },
+
+  nome_acao_preco: {
+    marginLeft: 5,
+    fontSize: 15,
+    fontWeight: '500'
+  },
+
+  porcentagem: {
+    marginLeft: 104,
+    marginBottom: 8,
+    fontSize: 15,
+    color: 'red'
   }
 });
