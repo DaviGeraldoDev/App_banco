@@ -1,19 +1,39 @@
-//https://www.blackbox.ai/?userId=65b25f3a30333800338c57a0
-
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from "react";
-import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
+import DatePicker from 'react-native-date-picker'
+import { ImageBackground, StyleSheet, Text, TextInput, Pressable, TouchableOpacity, View, Image } from 'react-native';
 import Login_styles from '../../styles/Login_style';
 
 export default function Cadastro_pt1({navigation}) {
 
   const [nome, setName] = useState(null)
-  const [data_nascimento, setData_nascimento] = useState(null)
-  const [genero, setGenero] = useState(null)
   const [usuario, setUsuario] = useState(null)
   const [senha, setSenha] = useState(null)
+  const [genero, setGenero] = useState(null)
+  const [data_nascimento, setData_nascimento] = useState(new Date())
+  const [open, setOpen] = useState(false)
+  
+  const toggleDatapicker = () => {
+    setOpen(!open)
+  } 
+  
+  const onChange = ({ type }, selectedDate) => {
+    if (type == "set"){
+      const currentDate = selectedDate
+      setData_nascimento(currentDate)
+      toggleDatapicker()
+      setData_nascimento(currentDate)
 
-  const Entrar = () => {
+    } else{
+      toggleDatapicker()
+    }
+  }
+
+  const continuacao_cadastro = () => {
+    navigation.navigate("Cadastro_pt2")
+  }
+
+  const entrar = () => {
     navigation.navigate("Login")
   }
 
@@ -30,51 +50,50 @@ export default function Cadastro_pt1({navigation}) {
           />
 
           <TextInput style={Login_styles.input} 
-          placeholder="Nome Completo"
-          value={nome}
-          onChangeText={value => {
-            setName(value)
-          }}/>
+          placeholder="Nome Completo"/>
 
           <View style={container_style.div_inputs_menores}>
-            <TextInput style={container_style.input_menor}
-              placeholder="Nascimento" 
+            
+            {!open && (
+              <Pressable
+              onPress={toggleDatapicker}>
+                <TextInput style={container_style.input_menor}
+                onPress={() => setOpen(true)} 
+                placeholder="Nascimento" 
+                onChangeText={setData_nascimento}
+                editable={false}/>
+              </Pressable>
+            )}
+            
+            {open && (
+              <DatePicker
+              mode='date'
+              display='spinner'
               value={data_nascimento}
-              keyboardType='number-pad'
-              onChangeText={value => {
-                setData_nascimento(value)
-              }}/>
-          
+              onChange={onChange}
+              />
+             
+            )}
+              
+
             <TextInput style={container_style.input_menor} 
-            placeholder="Gênero"
-            value={genero}
-            onChangeText={value => {
-              setGenero(value)
-            }}/>
+            placeholder="Gênero"/>
           </View>
 
           <TextInput style={Login_styles.input} 
-          placeholder="Usuário"
-          value={usuario}
-          onChangeText={value => {
-            setUsuario(value)
-          }}/>
+          placeholder="RG"/>
 
-          <TextInput
-          style={Login_styles.input} 
-          placeholder="Senha"
-          value={senha}
-          secureTextEntry={true}
-          onChangeText={value => {setSenha(value)}}/>
+          <TextInput style={Login_styles.input} 
+          placeholder="CPF"/>
 
           <TouchableOpacity 
           style={Login_styles.botao}
-          onPress={() => Cadastrar()}>
-            <Text>Cadastrar</Text>
+          onPress={() => continuacao_cadastro()}>
+            <Text>Continuar</Text>
           </TouchableOpacity>
 
           <Text style={Login_styles.text}
-          onPress={() => Entrar()}>Entrar</Text>
+          onPress={() => entrar()}>Entrar</Text>
         </View>
 
       </ImageBackground>

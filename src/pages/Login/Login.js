@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
+import React, {useState} from "react";
 import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, Vibration } from 'react-native';
 import Login_styles from '../../styles/Login_style';
 import * as Animatable from 'react-native-animatable';
 
 export default function Login({navigation}) {
-  
+
   const entrar = () => {
-    Vibration.vibrate(500),
+    // Vibration.vibrate(500),
     navigation.reset({
       index: 0,
       routes: [{ name: 'Principal' }]
@@ -46,7 +47,6 @@ export default function Login({navigation}) {
 
           <Text style={Login_styles.text} 
           onPress={() => cadastro()}>Cadastre-se</Text>
-          
         </Animatable.View>
 
       </ImageBackground>
